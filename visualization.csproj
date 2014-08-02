@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{00429D8C-269D-4EB3-AAFC-DCF072FCB855}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>visualizationPlugin</RootNamespace>
+    <AssemblyName>visualizationPlugin</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="visualization.cs" />
+    <Compile Include="pluginUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="pluginUI.Designer.cs">
+      <DependentUpon>pluginUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="visualizationUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="visualizationUI.Designer.cs">
+      <DependentUpon>visualizationUI.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\fPlayer 2\fPlayer 2\fPlayer 2.csproj">
+      <Project>{dfea13bf-0907-4222-bcce-4f01ff2e9a86}</Project>
+      <Name>fPlayer 2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\libap\libap\libap.csproj">
+      <Project>{93eaacea-75b4-4aba-89ed-fa01bf252550}</Project>
+      <Name>libap</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="pluginUI.ca.resx">
+      <DependentUpon>pluginUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pluginUI.es.resx">
+      <DependentUpon>pluginUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pluginUI.resx">
+      <DependentUpon>pluginUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="visualizationUI.resx">
+      <DependentUpon>visualizationUI.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
