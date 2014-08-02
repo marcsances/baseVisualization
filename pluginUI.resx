@@ -126,7 +126,7 @@
     <value>Open Sans, 12pt</value>
   </data>
   <data name="appTitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 0</value>
+    <value>-100, -100</value>
   </data>
   <data name="appTitle.Size" type="System.Drawing.Size, System.Drawing">
     <value>105, 22</value>
@@ -147,25 +147,25 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;appTitle.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="clicktoreturnlbl.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+    <value>3</value>
   </data>
   <data name="clicktoreturnlbl.Font" type="System.Drawing.Font, System.Drawing">
     <value>Open Sans, 12pt</value>
   </data>
   <data name="clicktoreturnlbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>86, 216</value>
+    <value>3, 208</value>
   </data>
   <data name="clicktoreturnlbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>277, 22</value>
+    <value>447, 22</value>
   </data>
   <data name="clicktoreturnlbl.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="clicktoreturnlbl.Text" xml:space="preserve">
-    <value>Click here to return to visualization.</value>
+    <value>Click here to open visualization.</value>
+  </data>
+  <data name="clicktoreturnlbl.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="&gt;&gt;clicktoreturnlbl.Name" xml:space="preserve">
     <value>clicktoreturnlbl</value>
@@ -177,7 +177,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;clicktoreturnlbl.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="aboutButton.Location" type="System.Drawing.Point, System.Drawing">
     <value>418, 0</value>
@@ -201,6 +201,41 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;aboutButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="keytip.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Open Sans, 12pt</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="keytip.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="keytip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 250</value>
+  </data>
+  <data name="keytip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>447, 56</value>
+  </data>
+  <data name="keytip.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="keytip.Text" xml:space="preserve">
+    <value>Tip: Press F12 to change visualization
+        Press Escape to close</value>
+  </data>
+  <data name="keytip.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;keytip.Name" xml:space="preserve">
+    <value>keytip</value>
+  </data>
+  <data name="&gt;&gt;keytip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;keytip.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;keytip.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

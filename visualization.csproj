@@ -42,6 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="visualization.cs" />
     <Compile Include="pluginUI.cs">
       <SubType>UserControl</SubType>
@@ -76,6 +81,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="pluginUI.resx">
       <DependentUpon>pluginUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="visualizationUI.resx">
       <DependentUpon>visualizationUI.cs</DependentUpon>

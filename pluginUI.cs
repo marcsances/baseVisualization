@@ -25,6 +25,7 @@ namespace fPlayer_2
         {
             visualizationPlugin.visualizationUI vui = new visualizationPlugin.visualizationUI();
             vui.WindowState = FormWindowState.Maximized;
+            vui.Tag = this.Tag;
             vui.Show();
         }
 
@@ -39,6 +40,11 @@ namespace fPlayer_2
         }
 
         private void clicktoreturnlbl_Click(object sender, EventArgs e)
+        {
+            pluginUI_Load(sender, e);
+        }
+
+        private void keytip_Click(object sender, EventArgs e)
         {
             pluginUI_Load(sender, e);
         }

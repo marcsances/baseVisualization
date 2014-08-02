@@ -117,24 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="appTitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-100, -100</value>
-  </data>
-  <data name="appTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 22</value>
-  </data>
-  <data name="appTitle.Text" xml:space="preserve">
-    <value>Visualització</value>
-  </data>
-  <data name="clicktoreturnlbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>444, 22</value>
-  </data>
-  <data name="clicktoreturnlbl.Text" xml:space="preserve">
-    <value>Feu clic per a tornar a la visualització.</value>
-  </data>
-  <data name="keytip.Text" xml:space="preserve">
-    <value>Consell: Premeu F12 per tancar la visualització
-Premeu Esc per a sortir</value>
-  </data>
 </root>

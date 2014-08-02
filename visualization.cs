@@ -24,7 +24,7 @@ namespace fPlayer_2
         {
             get
             {
-                return name;
+                if (pui != null) return pui.appTitle.Text; else return new pluginUI().appTitle.Text;
             }
             set
             {

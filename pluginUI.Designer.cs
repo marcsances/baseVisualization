@@ -32,6 +32,7 @@
             this.appTitle = new System.Windows.Forms.Label();
             this.clicktoreturnlbl = new System.Windows.Forms.Label();
             this.aboutButton = new System.Windows.Forms.Button();
+            this.keytip = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // appTitle
@@ -53,11 +54,18 @@
             this.aboutButton.UseVisualStyleBackColor = true;
             this.aboutButton.Click += new System.EventHandler(this.aboutButton_Click);
             // 
+            // keytip
+            // 
+            resources.ApplyResources(this.keytip, "keytip");
+            this.keytip.Name = "keytip";
+            this.keytip.Click += new System.EventHandler(this.keytip_Click);
+            // 
             // pluginUI
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.keytip);
             this.Controls.Add(this.aboutButton);
             this.Controls.Add(this.clicktoreturnlbl);
             this.Controls.Add(this.appTitle);
@@ -74,5 +82,6 @@
         public System.Windows.Forms.Label appTitle;
         public System.Windows.Forms.Label clicktoreturnlbl;
         private System.Windows.Forms.Button aboutButton;
+        public System.Windows.Forms.Label keytip;
     }
 }
