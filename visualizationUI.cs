@@ -17,9 +17,12 @@ namespace visualizationPlugin
             this.Controls.Remove(songtitle);
             this.Controls.Remove(songAlbum);
             this.Controls.Remove(songArtist);
+            this.Controls.Remove(songPos);
             albumBox.Controls.Add(songtitle);
             albumBox.Controls.Add(songAlbum);
+            albumBox.Controls.Add(songPos);
             albumBox.Controls.Add(songArtist); // for transparency to work
+            
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -33,17 +36,48 @@ namespace visualizationPlugin
                     gtype++;
                     if (gtype == 7) gtype = 0;
                     break;
+               
             }
+            
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x319)   // WM_APPCOMMAND message
+            {
+                // extract cmd from LPARAM (as GET_APPCOMMAND_LPARAM macro does)
+                int cmd = (int)((uint)m.LParam >> 16 & ~0xf000);
+                switch (cmd)
+                {
+                    case 13:  // APPCOMMAND_MEDIA_STOP constant
+                        if (this.Tag != null) ((fPlayer_2.Player)this.Tag).stopanddispose();
+                        break;
+                    case 14:  // APPCOMMAND_MEDIA_PLAY_PAUSE
+                        if (this.Tag != null) ((fPlayer_2.Player)this.Tag).playpause();
+                        break;
+                    case 11:  // APPCOMMAND_MEDIA_NEXTTRACK
+                        if (this.Tag != null) ((fPlayer_2.Player)this.Tag).next();
+                        break;
+                    case 12:  // APPCOMMAND_MEDIA_PREVIOUSTRACK
+                        if (this.Tag != null) ((fPlayer_2.Player)this.Tag).prev();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            base.WndProc(ref m);
+        }
+
         int gtype = (int)libZPlay.TFFTGraphType.gtAreaLeftOnTop;
         
         private void updateTimer_Tick(object sender, EventArgs e)
         {
+            
             fPlayer_2.Player p=(fPlayer_2.Player)this.Tag;
-            if (p!=null)
+            if (p!=null && p.gI()!=null)
             {
-                
+                if (this.songPos.Text != p.trackpos + " / " + p.tracklength) this.songPos.Text = p.trackpos.Text + " / " + p.tracklength.Text;
                 if (this.songtitle.Text!=p.songname.Text) this.songtitle.Text = p.songname.Text;
                 if (this.songArtist.Text!=p.songinfo.Text.Split('/')[0]) this.songArtist.Text = p.songinfo.Text.Split('/')[0];
                 if (p.songinfo.Text.Split('/').Length > 1 && this.songAlbum.Text!=p.songinfo.Text.Split('/')[1])
@@ -63,9 +97,11 @@ namespace visualizationPlugin
                         songtitle.Left = -this.albumBox.Left+16;
                         songAlbum.Left = -this.albumBox.Left+16;
                         songArtist.Left = -this.albumBox.Left+16;
+                        songPos.Left = -this.albumBox.Left + 16;
                         songtitle.Top = 9;
-                        songArtist.Top = Height-220;
-                        songAlbum.Top = Height - 188;
+                        songArtist.Top = Height-60;
+                        songPos.Top = Height - 127;
+                        songAlbum.Top = Height - 28;
                     }
                     else if (Height==Width)
                     {
@@ -74,11 +110,13 @@ namespace visualizationPlugin
                         this.albumBox.Top = 0;
                         this.albumBox.Left = 0;
                         songtitle.Top = 9;
+                        songPos.Top = Height - 127;
                         songAlbum.Top = Height - 60;
                         songArtist.Top = Height - 28;
                         songtitle.Left = 16;
                         songArtist.Left = 16;
                         songAlbum.Left = 16;
+                        songPos.Left = 16;
                     } else {
                         this.albumBox.Height = Width;
                         this.albumBox.Width = Width;
@@ -86,13 +124,16 @@ namespace visualizationPlugin
                         songtitle.Left = 16;
                         songAlbum.Left = 16;
                         songArtist.Left = 16;
+                        songPos.Left = 16;
                         songtitle.Top = -this.albumBox.Top+9;
+                        songPos.Top = -this.albumBox.Top + (this.Height - 127);
                         songArtist.Top = -this.albumBox.Top+(this.Height - 60);
                         songAlbum.Top = -this.albumBox.Top+(this.Height - 28);
                     }
                     songtitle.ForeColor = bestColor((Bitmap)p.songalbum.Image,songtitle);
                     songArtist.ForeColor = bestColor((Bitmap)p.songalbum.Image, songArtist);
                     songAlbum.ForeColor = bestColor((Bitmap)p.songalbum.Image, songAlbum);
+                    songPos.ForeColor = bestColor((Bitmap)p.songalbum.Image, songAlbum);
                     this.albumBox.Image = p.songalbum.Image;
                     this.Update();
                     this.albumBox.Update();
@@ -100,6 +141,7 @@ namespace visualizationPlugin
                     this.songtitle.BackColor = Color.Transparent;
                     this.songArtist.BackColor = Color.Transparent;
                     this.songAlbum.BackColor = Color.Transparent;
+                    this.songPos.BackColor = Color.Transparent;
                     this.Update();
                 }
                 libZPlay.ZPlay audioplayer = (libZPlay.ZPlay)p.gI().impl_command("GETZPLAY",null)[0];
@@ -129,6 +171,7 @@ namespace visualizationPlugin
                     this.songtitle.BackColor = Color.Transparent;
                     this.songArtist.BackColor = Color.Transparent;
                     this.songAlbum.BackColor = Color.Transparent;
+                    this.songPos.BackColor = Color.Transparent;
                     refreshed = true;
                 }
             }
@@ -246,3 +289,4 @@ namespace visualizationPlugin
         }
     }
 }
+

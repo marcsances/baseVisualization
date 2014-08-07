@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{00429D8C-269D-4EB3-AAFC-DCF072FCB855}</ProjectGuid>
+    <ProjectGuid>{AF2C6B54-FCE8-44B8-96E9-6C62EB14069D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>visualizationPlugin</RootNamespace>

@@ -35,6 +35,7 @@
             this.songAlbum = new Label2();
             this.songArtist = new Label2();
             this.songtitle = new Label2();
+            this.songPos = new Label2();
             ((System.ComponentModel.ISupportInitialize)(this.albumBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,9 +51,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.videoPanel.BackColor = System.Drawing.Color.Transparent;
-            this.videoPanel.Location = new System.Drawing.Point(16, 44);
+            this.videoPanel.Location = new System.Drawing.Point(20, 44);
             this.videoPanel.Name = "videoPanel";
-            this.videoPanel.Size = new System.Drawing.Size(611, 373);
+            this.videoPanel.Size = new System.Drawing.Size(607, 306);
             this.videoPanel.TabIndex = 9;
             this.videoPanel.Click += new System.EventHandler(this.videoPanel_Click);
             // 
@@ -119,12 +120,29 @@
             this.songtitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.songtitle.DoubleClick += new System.EventHandler(this.songtitle_DoubleClick);
             // 
+            // songPos
+            // 
+            this.songPos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.songPos.BackColor = System.Drawing.Color.Transparent;
+            this.songPos.Font = new System.Drawing.Font("Open Sans", 27.75F);
+            this.songPos.ForeColor = System.Drawing.Color.White;
+            this.songPos.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.songPos.Location = new System.Drawing.Point(20, 353);
+            this.songPos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.songPos.Name = "songPos";
+            this.songPos.Size = new System.Drawing.Size(607, 67);
+            this.songPos.TabIndex = 11;
+            this.songPos.Text = "--:-- / --:--";
+            this.songPos.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
             // visualizationUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(640, 480);
+            this.Controls.Add(this.songPos);
             this.Controls.Add(this.videoPanel);
             this.Controls.Add(this.songAlbum);
             this.Controls.Add(this.songArtist);
@@ -149,5 +167,6 @@
         private System.Windows.Forms.Timer updateTimer;
         private System.Windows.Forms.Panel videoPanel;
         private System.Windows.Forms.PictureBox albumBox;
+        public Label2 songPos;
     }
 }
